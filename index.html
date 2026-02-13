@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BaraLink — Coming Soon</title>
-  <meta name="description" content="BaraLink is building Guinea’s trusted on-demand platform connecting customers with verified workers for urgent services." />
+  <title>BaraLink — Bientôt disponible</title>
+  <meta name="description" content="BaraLink connecte les clients à des travailleurs vérifiés pour des services urgents en Guinée." />
 
-  <!-- Open Graph / Social Preview -->
+  <!-- Open Graph / Social -->
   <meta property="og:title" content="BaraLink — Coming Soon" />
   <meta property="og:description" content="Guinea’s trusted on-demand platform connecting customers with verified workers for urgent services." />
   <meta property="og:type" content="website" />
@@ -20,14 +20,16 @@
       --text: #F8FAFF;
       --muted: rgba(248,250,255,.78);
 
-      /* Big-company palette (blue primary, orange CTA accent) */
+      /* Big-company palette (logo stays deep blue; orange for CTA) */
       --blueDeep: #081A3A;
       --blue: #0B3A82;
       --orange: #F97316;
       --orangeDeep: #C2410C;
+      --light: #F8FAFF;
+      --dark: #0A0F1E;
     }
 
-    *{ box-sizing: border-box; }
+    *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -45,12 +47,11 @@
 
     .wrap{
       width:100%;
-      max-width: 960px;
+      max-width: 980px;
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 18px;
     }
-
     @media (max-width: 900px){
       .wrap{ grid-template-columns: 1fr; }
     }
@@ -64,18 +65,25 @@
       box-shadow: 0 20px 60px rgba(0,0,0,.28);
     }
 
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 14px;
+    }
+
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      margin-bottom: 16px;
     }
 
     .logo{
       width:44px;
       height:44px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--blue), rgba(249,115,22,.85));
+      background: linear-gradient(135deg, var(--blue), rgba(249,115,22,.35));
       box-shadow: 0 10px 30px rgba(11,58,130,.25);
       flex: 0 0 auto;
     }
@@ -85,11 +93,46 @@
       font-size: 18px;
       letter-spacing: .2px;
     }
-
     .brand span{
       font-size: 13px;
       color: var(--muted);
     }
+
+    .controls{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(248,250,255,.82);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .pill i{
+      width:8px; height:8px; border-radius:999px; background: var(--orange);
+      display:inline-block;
+    }
+
+    .langbtn{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(248,250,255,.9);
+      padding: 8px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .langbtn:hover{ border-color: rgba(255,255,255,.2); }
 
     h1{
       margin: 0 0 10px;
@@ -97,7 +140,6 @@
       line-height: 1.06;
       letter-spacing: -0.5px;
     }
-
     p{
       margin: 0 0 12px;
       color: var(--muted);
@@ -112,7 +154,6 @@
       display: grid;
       gap: 10px;
     }
-
     .bullets li{
       display:flex;
       gap:10px;
@@ -122,7 +163,6 @@
       background: rgba(255,255,255,.04);
       border-radius: 14px;
     }
-
     .dot{
       width:10px;
       height:10px;
@@ -132,35 +172,40 @@
       flex: 0 0 auto;
     }
 
-    .form{
+    .ctaRow{
       display:flex;
       gap: 10px;
       margin-top: 14px;
+      flex-wrap: wrap;
+      align-items:center;
     }
 
-    input{
-      flex: 1;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      outline: none;
-    }
-
-    input::placeholder{ color: rgba(248,250,255,.55); }
-
-    button{
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding: 12px 14px;
       border-radius: 12px;
       border: 0;
       background: var(--orange);
       color: #1a120b;
-      font-weight: 800;
-      cursor: pointer;
+      font-weight: 900;
+      text-decoration:none;
+      cursor:pointer;
+      min-width: 170px;
     }
+    .cta:hover{ background: var(--orangeDeep); }
 
-    button:hover{ background: var(--orangeDeep); }
+    .cta.secondary{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(248,250,255,.92);
+      min-width: 170px;
+    }
+    .cta.secondary:hover{
+      border-color: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.04);
+    }
 
     .note{
       margin-top: 10px;
@@ -172,26 +217,23 @@
       margin: 0 0 12px;
       font-size: 16px;
     }
-
     .kv{
       display:grid;
       gap: 10px;
       margin-top: 10px;
     }
-
     .kv .box{
       border: 1px solid var(--line);
       background: rgba(255,255,255,.04);
       border-radius: 14px;
       padding: 12px;
     }
-
     .kv b{
       display:block;
       margin-bottom: 6px;
     }
 
-    a{ color: rgba(248,250,255,.9); text-decoration: none; }
+    a{ color: rgba(248,250,255,.92); text-decoration:none; }
     a:hover{ text-decoration: underline; }
 
     .footer{
@@ -203,26 +245,6 @@
       font-size: 12px;
       color: rgba(248,250,255,.72);
     }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: rgba(248,250,255,.82);
-      font-size: 13px;
-    }
-
-    .tag i{
-      width: 8px;
-      height: 8px;
-      background: var(--orange);
-      border-radius: 999px;
-      display:inline-block;
-    }
   </style>
 </head>
 
@@ -230,55 +252,72 @@
   <main class="wrap">
     <!-- Left: Main pitch -->
     <section class="card">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h2>BaraLink</h2>
-          <span>baralink.org</span>
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h2>BaraLink</h2>
+            <span>baralink.org</span>
+          </div>
         </div>
-        <div style="margin-left:auto">
-          <span class="tag"><i></i>Launching soon in Guinea</span>
+
+        <div class="controls">
+          <span class="pill"><i></i><span data-i18n="pill">Lancement bientôt en Guinée</span></span>
+          <button class="langbtn" id="langToggle" type="button" aria-label="Toggle language">FR / EN</button>
         </div>
       </div>
 
-      <h1>Trusted quick services, on demand.</h1>
-      <p>
-        BaraLink connects households and small businesses with <b>verified</b> workers for urgent jobs—fast matching,
-        clear ETAs, and support if something goes wrong.
+      <h1 data-i18n="headline">Des services rapides et fiables, à la demande.</h1>
+      <p data-i18n="subheadline">
+        BaraLink connecte les ménages et les petites entreprises à des travailleurs <b>vérifiés</b> pour des besoins urgents — matching rapide,
+        ETA clair, et support en cas de problème.
       </p>
 
       <ul class="bullets">
-        <li><span class="dot"></span><span><b>Verified workers</b> — identity checks + reviews to build trust.</span></li>
-        <li><span class="dot"></span><span><b>Fast response</b> — request → match → ETA updates.</span></li>
-        <li><span class="dot"></span><span><b>Protection</b> — dispute handling and rework policy.</span></li>
+        <li>
+          <span class="dot"></span>
+          <span data-i18n="b1"><b>Travailleurs vérifiés</b> — vérification d’identité + avis pour instaurer la confiance.</span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span data-i18n="b2"><b>Réponse rapide</b> — demande → matching → mises à jour de l’ETA.</span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span data-i18n="b3"><b>Protection</b> — gestion des litiges et politique de reprise (rework).</span>
+        </li>
       </ul>
 
-      <!-- Simple waitlist placeholder (no backend). Replace later with a real form service. -->
-      <form class="form" onsubmit="event.preventDefault(); alert('Thanks! We will contact you soon.');">
-        <input type="email" placeholder="Enter your email to join the waitlist" required />
-        <button type="submit">Join waitlist</button>
-      </form>
-      <div class="note">We’ll only email you about BaraLink updates. No spam.</div>
+      <div class="ctaRow">
+        <!-- Waitlist button (Google Form). You will paste the link in the JS variable WAITLIST_URL. -->
+        <a class="cta" id="waitlistBtn" href="#" target="_blank" rel="noopener" data-i18n="ctaWaitlist">Rejoindre la liste d’attente</a>
+
+        <a class="cta secondary" href="mailto:baralink.app@gmail.com" data-i18n="ctaContact">Nous contacter</a>
+      </div>
+
+      <div class="note" data-i18n="note">
+        La liste d’attente ouvrira via un Google Form. Nous n’enverrons pas de spam.
+      </div>
     </section>
 
-    <!-- Right: details -->
+    <!-- Right: Details -->
     <aside class="card side">
-      <h3>What we’re building</h3>
+      <h3 data-i18n="sideTitle">Ce que nous construisons</h3>
       <div class="kv">
         <div class="box">
-          <b>Early service categories</b>
-          Plumbing • Electrical • Cleaning • Handyman
+          <b data-i18n="catTitle">Catégories au démarrage</b>
+          <span data-i18n="catValue">Plomberie • Électricité • Ménage • Bricolage</span>
         </div>
         <div class="box">
-          <b>For customers</b>
-          Get reliable help quickly with transparent pricing guidance and safe support.
+          <b data-i18n="custTitle">Pour les clients</b>
+          <span data-i18n="custValue">Obtenez de l’aide fiable rapidement, avec transparence et support.</span>
         </div>
         <div class="box">
-          <b>For workers</b>
-          Get steady job leads, build reputation, and grow income with trust-based profiles.
+          <b data-i18n="workTitle">Pour les travailleurs</b>
+          <span data-i18n="workValue">Accédez à des missions, construisez votre réputation, et augmentez vos revenus.</span>
         </div>
         <div class="box">
-          <b>Contact</b>
+          <b data-i18n="contactTitle">Contact</b>
           <a href="mailto:baralink.app@gmail.com">baralink.app@gmail.com</a>
         </div>
       </div>
@@ -286,15 +325,123 @@
       <div class="footer">
         <span>© <span id="year"></span> BaraLink</span>
         <span>
-          <a href="#" onclick="alert('Privacy policy will be published at launch.'); return false;">Privacy</a> •
-          <a href="#" onclick="alert('Terms will be published at launch.'); return false;">Terms</a>
+          <a href="#" onclick="alert('La politique de confidentialité sera publiée au lancement.'); return false;" data-i18n="privacy">Confidentialité</a> •
+          <a href="#" onclick="alert('Les conditions seront publiées au lancement.'); return false;" data-i18n="terms">Conditions</a>
         </span>
       </div>
     </aside>
   </main>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // ✅ Replace this later with your Google Form link (one place only):
+    // Example: "https://forms.gle/xxxxxxxxxxxxxxxxx"
+    const WAITLIST_URL = "PASTE_GOOGLE_FORM_LINK_HERE";
+
+    const i18n = {
+      fr: {
+        title: "BaraLink — Bientôt disponible",
+        desc: "BaraLink connecte les clients à des travailleurs vérifiés pour des services urgents en Guinée.",
+        pill: "Lancement bientôt en Guinée",
+        headline: "Des services rapides et fiables, à la demande.",
+        subheadline: "BaraLink connecte les ménages et les petites entreprises à des travailleurs <b>vérifiés</b> pour des besoins urgents — matching rapide, ETA clair, et support en cas de problème.",
+        b1: "<b>Travailleurs vérifiés</b> — vérification d’identité + avis pour instaurer la confiance.",
+        b2: "<b>Réponse rapide</b> — demande → matching → mises à jour de l’ETA.",
+        b3: "<b>Protection</b> — gestion des litiges et politique de reprise (rework).",
+        ctaWaitlist: "Rejoindre la liste d’attente",
+        ctaContact: "Nous contacter",
+        note: "La liste d’attente ouvrira via un Google Form. Nous n’enverrons pas de spam.",
+        sideTitle: "Ce que nous construisons",
+        catTitle: "Catégories au démarrage",
+        catValue: "Plomberie • Électricité • Ménage • Bricolage",
+        custTitle: "Pour les clients",
+        custValue: "Obtenez de l’aide fiable rapidement, avec transparence et support.",
+        workTitle: "Pour les travailleurs",
+        workValue: "Accédez à des missions, construisez votre réputation, et augmentez vos revenus.",
+        contactTitle: "Contact",
+        privacy: "Confidentialité",
+        terms: "Conditions"
+      },
+      en: {
+        title: "BaraLink — Coming Soon",
+        desc: "BaraLink is building Guinea’s trusted on-demand platform connecting customers with verified workers for urgent services.",
+        pill: "Launching soon in Guinea",
+        headline: "Trusted quick services, on demand.",
+        subheadline: "BaraLink connects households and small businesses with <b>verified</b> workers for urgent jobs—fast matching, clear ETAs, and support if something goes wrong.",
+        b1: "<b>Verified workers</b> — identity checks + reviews to build trust.",
+        b2: "<b>Fast response</b> — request → match → ETA updates.",
+        b3: "<b>Protection</b> — dispute handling and rework policy.",
+        ctaWaitlist: "Join the waitlist",
+        ctaContact: "Contact us",
+        note: "The waitlist will open via a Google Form. We won’t spam you.",
+        sideTitle: "What we’re building",
+        catTitle: "Early service categories",
+        catValue: "Plumbing • Electrical • Cleaning • Handyman",
+        custTitle: "For customers",
+        custValue: "Get reliable help quickly with transparency and support.",
+        workTitle: "For workers",
+        workValue: "Get steady job leads, build reputation, and grow income.",
+        contactTitle: "Contact",
+        privacy: "Privacy",
+        terms: "Terms"
+      }
+    };
+
+    function applyLang(lang){
+      const dict = i18n[lang] || i18n.fr;
+      document.documentElement.lang = lang;
+      document.title = dict.title;
+
+      // Meta description (optional)
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if(metaDesc) metaDesc.setAttribute("content", dict.desc);
+
+      // Replace all i18n nodes
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(dict[key] !== undefined){
+          // Some strings include <b> tags
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Save preference
+      localStorage.setItem("baralink_lang", lang);
+    }
+
+    // Waitlist link behavior
+    const waitlistBtn = document.getElementById("waitlistBtn");
+    function setupWaitlist(){
+      const url = (WAITLIST_URL || "").trim();
+      if(url && url !== "PASTE_GOOGLE_FORM_LINK_HERE"){
+        waitlistBtn.href = url;
+        waitlistBtn.style.opacity = "1";
+        waitlistBtn.style.pointerEvents = "auto";
+      } else {
+        // Not configured yet: keep button, but show a friendly message instead of a dead link
+        waitlistBtn.href = "#";
+        waitlistBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const lang = localStorage.getItem("baralink_lang") || "fr";
+          alert(lang === "en"
+            ? "Waitlist form is not connected yet. Paste your Google Form link into WAITLIST_URL in the code."
+            : "Le formulaire n’est pas encore connecté. Collez le lien Google Form dans WAITLIST_URL dans le code."
+          );
+        }, { once: true });
+      }
+    }
+
+    // Toggle
+    const btn = document.getElementById("langToggle");
+    btn.addEventListener("click", () => {
+      const current = localStorage.getItem("baralink_lang") || "fr";
+      applyLang(current === "fr" ? "en" : "fr");
+    });
+
+    // Init
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const saved = localStorage.getItem("baralink_lang") || "fr";
+    applyLang(saved);
+    setupWaitlist();
   </script>
 </body>
 </html>
