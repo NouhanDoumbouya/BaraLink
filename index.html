@@ -1,13 +1,300 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BaraLink — Coming Soon</title>
+  <meta name="description" content="BaraLink is building Guinea’s trusted on-demand platform connecting customers with verified workers for urgent services." />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="BaraLink — Coming Soon" />
+  <meta property="og:description" content="Guinea’s trusted on-demand platform connecting customers with verified workers for urgent services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://baralink.org" />
+
+  <style>
+    :root{
+      --bg: #0A0F1E;
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.12);
+      --text: #F8FAFF;
+      --muted: rgba(248,250,255,.78);
+
+      /* Big-company palette (blue primary, orange CTA accent) */
+      --blueDeep: #081A3A;
+      --blue: #0B3A82;
+      --orange: #F97316;
+      --orangeDeep: #C2410C;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(11,58,130,.35), transparent 60%),
+        radial-gradient(700px 420px at 85% 25%, rgba(249,115,22,.18), transparent 55%),
+        var(--bg);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width: 960px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 900px){
+      .wrap{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.28);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom: 16px;
+    }
+
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), rgba(249,115,22,.85));
+      box-shadow: 0 10px 30px rgba(11,58,130,.25);
+      flex: 0 0 auto;
+    }
+
+    .brand h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    .brand span{
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: 44px;
+      line-height: 1.06;
+      letter-spacing: -0.5px;
+    }
+
+    p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .bullets{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .bullets li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius: 999px;
+      background: var(--orange);
+      margin-top: 6px;
+      flex: 0 0 auto;
+    }
+
+    .form{
+      display:flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    input{
+      flex: 1;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      outline: none;
+    }
+
+    input::placeholder{ color: rgba(248,250,255,.55); }
+
+    button{
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 0;
+      background: var(--orange);
+      color: #1a120b;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover{ background: var(--orangeDeep); }
+
+    .note{
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(248,250,255,.72);
+    }
+
+    .side h3{
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    .kv{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .kv .box{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .kv b{
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    a{ color: rgba(248,250,255,.9); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .footer{
+      margin-top: 14px;
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: rgba(248,250,255,.72);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: rgba(248,250,255,.82);
+      font-size: 13px;
+    }
+
+    .tag i{
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 999px;
+      display:inline-block;
+    }
+  </style>
 </head>
-<body style="font-family:system-ui;max-width:720px;margin:60px auto;padding:0 16px;line-height:1.6;">
-  <h1>BaraLink is coming soon.</h1>
-  <p>We’re building Guinea’s trusted platform to connect customers with verified workers for urgent services.</p>
-  <p><b>Contact:</b> baralink.app@gmail.com</p>
+
+<body>
+  <main class="wrap">
+    <!-- Left: Main pitch -->
+    <section class="card">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h2>BaraLink</h2>
+          <span>baralink.org</span>
+        </div>
+        <div style="margin-left:auto">
+          <span class="tag"><i></i>Launching soon in Guinea</span>
+        </div>
+      </div>
+
+      <h1>Trusted quick services, on demand.</h1>
+      <p>
+        BaraLink connects households and small businesses with <b>verified</b> workers for urgent jobs—fast matching,
+        clear ETAs, and support if something goes wrong.
+      </p>
+
+      <ul class="bullets">
+        <li><span class="dot"></span><span><b>Verified workers</b> — identity checks + reviews to build trust.</span></li>
+        <li><span class="dot"></span><span><b>Fast response</b> — request → match → ETA updates.</span></li>
+        <li><span class="dot"></span><span><b>Protection</b> — dispute handling and rework policy.</span></li>
+      </ul>
+
+      <!-- Simple waitlist placeholder (no backend). Replace later with a real form service. -->
+      <form class="form" onsubmit="event.preventDefault(); alert('Thanks! We will contact you soon.');">
+        <input type="email" placeholder="Enter your email to join the waitlist" required />
+        <button type="submit">Join waitlist</button>
+      </form>
+      <div class="note">We’ll only email you about BaraLink updates. No spam.</div>
+    </section>
+
+    <!-- Right: details -->
+    <aside class="card side">
+      <h3>What we’re building</h3>
+      <div class="kv">
+        <div class="box">
+          <b>Early service categories</b>
+          Plumbing • Electrical • Cleaning • Handyman
+        </div>
+        <div class="box">
+          <b>For customers</b>
+          Get reliable help quickly with transparent pricing guidance and safe support.
+        </div>
+        <div class="box">
+          <b>For workers</b>
+          Get steady job leads, build reputation, and grow income with trust-based profiles.
+        </div>
+        <div class="box">
+          <b>Contact</b>
+          <a href="mailto:baralink.app@gmail.com">baralink.app@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>© <span id="year"></span> BaraLink</span>
+        <span>
+          <a href="#" onclick="alert('Privacy policy will be published at launch.'); return false;">Privacy</a> •
+          <a href="#" onclick="alert('Terms will be published at launch.'); return false;">Terms</a>
+        </span>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
